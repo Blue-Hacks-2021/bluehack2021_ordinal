@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Sign Up</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.firstName.label }}<br>
+            {{ form.firstName(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.lastName.label }}<br>
+            {{ form.lastName(size=32) }}<br>
+           
+        </p>
+        <p>
+            {{ form.middleName.label }}<br>
+            {{ form.middleName(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.username.label }}<br>
+            {{ form.username(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.city.label }}<br>
+            {{ form.city(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.province.label }}<br>
+            {{ form.province(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(size=32) }}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}
