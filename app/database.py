@@ -1,5 +1,5 @@
 #these can be initialized in a different py file if you want
-from flask_mysqldb import MySQL
+from flask_mysql import MySQL
 import MySQLdb.cursors
 import re
 
@@ -10,7 +10,7 @@ app.config['MYSQL_DB'] = 'ordinaldb'
  
 mysql = MySQL(app)
 
-
+"""
 @app.route('/home', methods=['GET', 'POST'])
 def home():
     """Renders the home page."""
@@ -78,3 +78,4 @@ def register():
     return render_template(
         'registration.html',
         title='Register')
+"""

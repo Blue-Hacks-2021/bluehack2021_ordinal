@@ -2,8 +2,8 @@
 
 {% block content %}
     <h1>Sign Up</h1>
+    {{ form.hidden_tag() }}
     <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
         <p>
             {{ form.firstName.label }}<br>
             {{ form.firstName(size=32) }}<br>
