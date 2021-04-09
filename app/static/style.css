@@ -1,0 +1,19 @@
+/* [[ FONTS ]] */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-size: 100%;
+}
+
+h1.title-lg {
+    font-family: "Poppins", sans-serif;
+    font-size: 4em;
+}
+
+h1.title-md {
+    font-family: "Poppins", sans-serif;
+    font-size: 3em;
+}
