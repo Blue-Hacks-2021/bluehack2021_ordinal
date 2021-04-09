@@ -1,0 +1,164 @@
+/* [[ FONTS ]] */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    line-height: 1 !important;
+    height: 100%;
+    background-image: url('./img/interlaced.png');
+    background-attachment: scroll;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+}
+
+.warning {
+    background-color: #FF0000;
+}
+
+.green-color {
+    background-color: #35D01A;
+}
+
+/* [[ SIDEBAR ]] */
+
+a.sidebar-items {
+    font-size: 2em;
+    color: #AE00FF;
+    padding: 0.3em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
+
+a.sidebar-items:hover {
+    background-color: rgb(216, 216, 216);
+    border-radius: 2em;
+}
+
+img.sidebar-img {
+    width: 0.9em;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 5em;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    padding-top: 20px;  
+}
+
+.sidebar-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-bottom {
+    position: absolute;
+    bottom: 1em;
+    width: 3.7em;
+}
+
+.profile-sidebar {
+    border-radius: 2em;
+}
+
+.profile-sidebar-container {
+    width: 2em;
+    height: 2em;
+    border-radius: 2em;
+}
+
+
+/* [[ END SIDEBAR ]] */
+/* [[ HOME PAGE ]] */
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.news-container {
+    background-color: white;
+    line-height: 1.5em;
+    border-radius: 1em;
+}
+.news-container .news-top {
+    display: flex;
+    align-items: center;
+}
+
+.news-container .news-top p {
+    padding-top: 2em;
+    padding-left: 5em;
+    padding-right: 3em;
+}
+
+.news-container .news-top img {
+    width: 3em;
+}
+
+.news-control {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2em;
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+    line-height: 0.2em;
+}
+
+.news-control .safe {
+    color: #35D01A;
+}
+
+.news-control .unsafe {
+    margin-left: 1em;
+    color: #FF0000;
+}
+
+.news-control-left {
+    display: flex;
+
+}
+
+.news-control-right {
+    display: flex;
+}
+
+.news-caption {
+    display: flex;
+    margin-left: 1em;
+    width: 35em;
+}
+
+.news-footer {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 0 1em 1em;
+}
+
+.mark-as {
+    text-decoration: none;
+    text-align: center;
+    padding: 0.5em;
+    color: white;
+}
+
+.mark-as:hover {
+    color: white;
+}
+
+.mark-as-bottom {
+    border-radius: 0 0 1em 1em;
+}

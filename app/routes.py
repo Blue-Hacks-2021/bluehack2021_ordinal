@@ -20,3 +20,7 @@ def login():
 @app.route('/register')
 def register():
     return render_template('register.html', title='Registration')
+
+@app.route('/home')
+def home():
+    return render_template('home.html', title='Home')
