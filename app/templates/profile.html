@@ -1,0 +1,89 @@
+{% extends 'home/base.html' %} 
+{% block content %} 
+<div class="main">
+    <div class="profile-container"> 
+        <div class="profile-header">
+            <div class="row">
+                <div class="col-sm-3 d-flex">                    
+                    <img class="img-fluid profile-img" src="{{ url_for('static', filename='img/test_profile/selwyn.jpg') }}" alt="">
+                </div>
+                <div class="col d-flex flex-column align-items-bottom">
+                    <p style="font-size: 2em; margin-bottom: 0.3em;">selwyntarr</p>
+                    <div class="row">
+                        <div class="col">
+                            <p style="font-weight: normal;">Techonological Institute of the Philippines</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p><img style="width: 2em;" src="{{ url_for('static', filename='img/hands-helping.svg') }}" alt=""><span style="margin-left: 0.2em;"> 1,204 karma</span></p>
+                        </div>
+                        <div class="col">
+                            <p><img style="width: 2em;" src="{{ url_for('static', filename='img/user-friend.svg') }}" alt=""><span style="margin-left: 0.2em;"> 10 friends</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-end pb-2">
+                    <a href="#" class="btn army-color army-btn">Add Friend</a>
+                </div>
+            </div>
+        </div>
+        <div class="profile-events-container">
+            <h3 class="title-md">Events (1):</h3>
+        </div>
+    </div>
+    <div class="event-container">
+        <div class="event-header">
+            <div class="row">
+                <div class="col d-flex event-col" style="margin-left: 1em;">
+                 <p><img class="img-fluid profile-sidebar profile-img" src="{{ url_for('static', filename='img/test_profile/selwyn.jpg') }}" alt=""><span style="margin-left: 1em;">selwyntarr</span></p>
+                </div>
+                <div class="col d-flex justify-content-end" style="margin-right: 1em;">
+                    <img width="50em" style="vertical-align: bottom !important;" src="{{ url_for('static', filename='img/meatball-menu.svg') }}" alt="">
+                </div>
+            </div>            
+        </div>
+        <div class="event-img-container">
+             <img class="img-fluid" style="width: 50em;" src="{{ url_for('static', filename='img/test_place/flood-2009.jpg') }}" alt="">
+        </div>
+        <div class="event-details">
+             <p class="event-title">Tuguegarao City</p>
+             <p><i class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em;">Project Tuguegarao</span></p>
+             <p><i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em;">8:00 am - 5:00 pm</span></p>
+             <p><i class="fa fa-calendar" aria-hidden="true"></i><span style="margin-left: 0.5em;">December 1, 2020</span></p>
+        </div>
+        <div class="event-comments">
+             <div class="row">
+                 <div class="col-sm-2">
+                     <p>selwyntarr: </p>
+                 </div>
+                 <div class="col">
+                     <p style="font-weight: normal;">Tila naulit ang kalbaryong dinanas ng marami dati sa bagyong Ondoy nang manalasa nitong Huwebes ang Typhoon #UlyssesPH... more</p>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-sm">
+                     <p class="view-comment">View all comments (1)</p>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-sm-2" style="margin-right: 1em;">
+                     <p>isaacsapelino: </p>
+                 </div>
+                 <div class="col">
+                     <p style="font-weight: normal;">Tila naulit ang kalbaryong dinanas ng marami dati sa bagyong Ondoy nang manalasa nitong Huwebes ang Typhoon #UlyssesPH... more</p>
+                 </div>
+             </div>
+        </div>
+        <div class="event-bottom">
+             <div class="row">
+                 <div class="col">
+                     <a href="#" class="btn green-color vol-btn">Volunteer</a>
+                 </div>
+             </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
