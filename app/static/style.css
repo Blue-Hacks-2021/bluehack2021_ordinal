@@ -1,5 +1,5 @@
 /* [[ FONTS ]] */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
     padding: 0;
@@ -10,8 +10,14 @@ html, body{
     line-height: 1 !important;
     height: 100%;
     background-image: url('./img/email-pattern.png');
+    background-attachment: scroll;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
 }
 
+.login-text {
+    font-weight: 500 !important;
+}
 
 .title-lg {
     font-weight: 700 !important;
@@ -37,6 +43,8 @@ html, body{
     border: none !important;
     font-size: 1.2em !important;
     font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    width: 100%;
 }
 
 .gradient-logo {
@@ -81,4 +89,34 @@ html, body{
 .form-group {
     margin-bottom: 1em !important;
 
+}
+/* [[ END OF LOGIN PAGE ]] */
+/* [[ REGISTER PAGE ]] */
+.reg-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.reg-box {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 2em;
+    height: 100%;
+    border-radius: 2em;
+    -webkit-box-shadow: 1px 9px 84px -29px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 9px 84px -29px rgba(0,0,0,0.75);
+    box-shadow: 1px 9px 84px -29px rgba(0,0,0,0.75);
+}
+.reg-box input {
+    margin-top: 0.5em;    
+    font-size: 1rem;
+}
+
+.reg-box .row .col {
+    padding: 0 !important;
+    padding-right: 0.3em !important;
+    padding-left: 0.3em !important;
 }
