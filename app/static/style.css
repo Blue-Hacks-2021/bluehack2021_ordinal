@@ -19,6 +19,10 @@ html, body{
     font-weight: 500 !important;
 }
 
+.logo-link {
+    text-decoration: none !important;
+}
+
 .title-lg {
     font-weight: 700 !important;
     font-size: 3.5em;
