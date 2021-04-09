@@ -1,5 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title-md">Ordinals</h1>
+<div class="content">
+    <div class="side-logo">
+        <div class="logo">
+            <h1 class="title-lg gradient-logo">Ordinals</h1>
+        </div>        
+        <p class="title-md">
+            Connect<br> with people you care. <span><img style="position: absolute !important; left: 21rem; bottom: 0.3rem; width: 2.2em;" src="{{ url_for('static', filename='img/line.svg') }}"></span>
+        </p>
+    </div>
+    <div class="col">
+        <form action="" class="form-box">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Username or Email">
+                <input type="password" class="form-control" placeholder="Password">                
+            </div>
+            <button type="submit" class="btn btn-primary army-color btn-block">Login</button>
+            <center style="margin-top: 1em;">
+                <a href="" class="cool-link">Forget your password?</a>
+            </center>            
+            <hr>
+            <a href="" class="btn btn-success green-color">Create an account</a>
+        </form>
+    </div>
+</div>
 {% endblock %}

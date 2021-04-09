@@ -5,6 +5,6 @@ name = "pypi"
 
 [packages]
 flask-wtf = "*"
+flask-mysqldb = "*"
 
 [dev-packages]
-

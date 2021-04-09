@@ -1,19 +1,84 @@
 /* [[ FONTS ]] */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap');
 
 * {
     padding: 0;
-    margin: 0;
+    margin: 0;    
+}
+
+html, body{
+    line-height: 1 !important;
     height: 100%;
-    font-size: 100%;
+    background-image: url('./img/email-pattern.png');
 }
 
-h1.title-lg {
+
+.title-lg {
+    font-weight: 700 !important;
+    font-size: 3.5em;
     font-family: "Poppins", sans-serif;
-    font-size: 4em;
 }
 
-h1.title-md {
+.title-md {
+    font-size: 2.5em;
+    font-weight: 600 !important;
     font-family: "Poppins", sans-serif;
-    font-size: 3em;
+}
+
+.army-color {
+    background-color: #AE00FF !important;
+    border: none !important;
+    font-size: 1.2em !important;
+    font-family: "Poppins", sans-serif;
+}
+
+.green-color {
+    background-color: #35D01A!important;
+    border: none !important;
+    font-size: 1.2em !important;
+    font-family: "Poppins", sans-serif;
+}
+
+.gradient-logo {
+    background: rgb(174,0,255);
+    background: linear-gradient(180deg, rgba(174,0,255,1) 15%, rgba(109,79,255,1) 52%, rgba(0,212,255,1) 100%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3em;
+}
+
+/* [[ LANDING PAGE ]] */
+.content {
+    display: flex;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    align-items: center;
+    height: 100vh;
+}
+.side-logo {
+    position: relative;
+    width: 40em;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 2em;
+    height: 23em;
+    border-radius: 2em;
+    -webkit-box-shadow: 1px 9px 84px -29px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 9px 84px -29px rgba(0,0,0,0.75);
+    box-shadow: 1px 9px 84px -29px rgba(0,0,0,0.75);
+}
+.form-box input {
+    margin-top: 1em;    
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1em !important;
+
 }
