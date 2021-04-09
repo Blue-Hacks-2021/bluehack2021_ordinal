@@ -1,5 +1,7 @@
 /* [[ FONTS ]] */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
 
 * {
     margin: 0;
@@ -11,8 +13,8 @@ html, body{
     height: 100%;
     background-image: url('./img/interlaced.png');
     background-attachment: scroll;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: bold;
 }
 
 .warning {
@@ -86,79 +88,72 @@ img.sidebar-img {
 .main {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
 }
 
-.news-container {
+.event-container {
+    display: flex;
+    flex-direction: column;
     background-color: white;
-    line-height: 1.5em;
+    width: 40em;
+    padding-top: 1em;
+    margin-top: 10em;
     border-radius: 1em;
 }
-.news-container .news-top {
+
+
+.event-menu {
+    font-size: 2em;
+    letter-spacing: 0.285em;
+}
+
+.event-img-container {
+    display: flex;
+    align-items: center !important;
+}
+
+.event-col {
     display: flex;
     align-items: center;
 }
 
-.news-container .news-top p {
-    padding-top: 2em;
-    padding-left: 5em;
-    padding-right: 3em;
+.event-header img.profile-img {
+    width: 2em;
 }
 
-.news-container .news-top img {
-    width: 3em;
+.event-details {
+    margin-left: 1em;
+    margin-top: 1em;
 }
 
-.news-control {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1.2em;
+.event-details p.event-title {
+    color: black !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.event-details p {
+    color: #9F9F9F;
+}
+
+.event-comments {
     margin-left: 1em;
     margin-right: 1em;
-    margin-top: 0.5em;
-    line-height: 0.2em;
 }
 
-.news-control .safe {
-    color: #35D01A;
+.view-comment {
+    color: #9F9F9F;
+    font-weight: normal;
 }
 
-.news-control .unsafe {
-    margin-left: 1em;
-    color: #FF0000;
-}
-
-.news-control-left {
-    display: flex;
-
-}
-
-.news-control-right {
-    display: flex;
-}
-
-.news-caption {
-    display: flex;
-    margin-left: 1em;
-    width: 35em;
-}
-
-.news-footer {
-    display: flex;
-    flex-direction: column;
-    border-radius: 0 0 1em 1em;
-}
-
-.mark-as {
-    text-decoration: none;
-    text-align: center;
-    padding: 0.5em;
+.vol-btn {
     color: white;
-}
-
-.mark-as:hover {
-    color: white;
-}
-
-.mark-as-bottom {
-    border-radius: 0 0 1em 1em;
+    font-family: "Poppins", sans-serif;
+    font-weight: medium;
+    font-size: 1.2em;
+    border-radius: 0 0 0.5em 0.5em;
+    width: 100%;
 }

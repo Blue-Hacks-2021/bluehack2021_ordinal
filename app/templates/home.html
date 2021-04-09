@@ -4,8 +4,8 @@
     <div class="sidebar-list">
         <a class="sidebar-items profile-sidebar-container" href="#"><img class="img-fluid profile-sidebar" src="{{ url_for('static', filename='img/test_profile/test-img.jpg') }}" alt=""></a>
         <a class="sidebar-items" href="#"><i class="fa fa-bell fa-2" aria-hidden="true"></i></a>
-        <a class="sidebar-items" href="#"><i class="fa fa-heart" aria-hidden="true"></i></a>
         <a class="sidebar-items" href="#"><img class="sidebar-img" src="{{ url_for('static', filename='img/hands-helping.svg') }}" alt=""></a>
+        <a class="sidebar-items" href="#"><img class="sidebar-img" src="{{ url_for('static', filename='img/user-friend.svg') }}" alt=""></a>
         <a class="sidebar-items" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
         <div class="sidebar-bottom">
             <a class="sidebar-items" href="#"><i style="transform: rotate(180deg);" class="fa fa-sign-out" aria-hidden="true"></i></a>
@@ -13,34 +13,59 @@
     </div>    
 </div>
 <div class="main">
-    <div class="news-container">
-        <div class="news-top">
-            <p><img class="img-fluid profile-sidebar" src="{{ url_for('static', filename='img/test_profile/gma.png') }}" alt=""><span style="margin-left: 1em;">GMA News TV</span></p>
-            <p><i style="margin-right: 0.5em;" class="fa fa-eye" aria-hidden="true"></i>14k seen</p>
-        </div>
-        <img src="{{ url_for('static', filename='img/test_place/flood-2009.jpg') }}" alt="" class="img-fluid">
-        <div class="news-control">
-            <div class="news-control-left">
-                <p class="safe"><i class="fa fa-check-circle" aria-hidden="true"></i><span style="margin-left: 0.5em;">2,000</span></p>
-                <p class="unsafe"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><span style="margin-left: 0.5em;">2,000</span></p>
+   <div class="event-container">
+       <div class="event-header">
+           <div class="row">
+               <div class="col d-flex event-col" style="margin-left: 1em;">
+                <p><img class="img-fluid profile-sidebar profile-img" src="{{ url_for('static', filename='img/test_profile/selwyn.jpg') }}" alt=""><span style="margin-left: 1em;">selwyntarr</span></p>
+               </div>
+               <div class="col d-flex justify-content-end" style="margin-right: 1em;">
+                   <img width="50em" style="vertical-align: bottom !important;" src="{{ url_for('static', filename='img/meatball-menu.svg') }}" alt="">
+               </div>
+           </div>            
+       </div>
+       <div class="event-img-container">
+            <img class="img-fluid" style="width: 50em;" src="{{ url_for('static', filename='img/test_place/flood-2009.jpg') }}" alt="">
+       </div>
+       <div class="event-details">
+            <p class="event-title">Tuguegarao City</p>
+            <p><i class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em;">Project Tuguegarao</span></p>
+            <p><i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em;">8:00 am - 5:00 pm</span></p>
+            <p><i class="fa fa-calendar" aria-hidden="true"></i><span style="margin-left: 0.5em;">December 1, 2020</span></p>
+       </div>
+       <div class="event-comments">
+            <div class="row">
+                <div class="col-sm-2">
+                    <p>selwyntarr: </p>
+                </div>
+                <div class="col">
+                    <p style="font-weight: normal;">Tila naulit ang kalbaryong dinanas ng marami dati sa bagyong Ondoy nang manalasa nitong Huwebes ang Typhoon #UlyssesPH... more</p>
+                </div>
             </div>
-            <div class="news-control-right">
-                <p class="time-posted"><i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em;">1 min</span></p>
+            <div class="row">
+                <div class="col-sm">
+                    <p class="view-comment">View all comments (1)</p>
+                </div>
             </div>
-        </div>
-        <div class="news-caption">
-            <div class="news-username">
-                <p style="font-weight: bold">gmanewstv: </p>
+            <div class="row">
+                <div class="col-sm-2" style="margin-right: 1em;">
+                    <p>isaacsapelino: </p>
+                </div>
+                <div class="col">
+                    <p style="font-weight: normal;">Tila naulit ang kalbaryong dinanas ng marami dati sa bagyong Ondoy nang manalasa nitong Huwebes ang Typhoon #UlyssesPH... more</p>
+                </div>
             </div>
-            <div style="margin-left: 1em; "class="news-body">
-                <p>Tila naulit ang kalbaryong dinanas ng marami dati sa bagyong Ondoy nang manalasa nitong Huwebes ang Typhoon #UlyssesPH... more</p>
+       </div>
+       <div class="event-bottom">
+            <div class="row">
+                <div class="col">
+                    <a href="#" class="btn green-color vol-btn">Volunteer</a>
+                </div>
             </div>
-        </div>
-        <div class="news-footer">
-            <a class="mark-as green-color" href="#">Mark as SAFE</a>
-            <a class="mark-as mark-as-bottom warning"href="#">Mark as UNSAFE</a>
-        </div>
-    </div>
+       </div>
+   </div>
+   <!-- More Cards -->
+   
 </div>
 {% endblock %}
 {% block script %}
