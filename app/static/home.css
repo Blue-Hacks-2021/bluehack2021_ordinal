@@ -17,6 +17,10 @@ html, body{
     overflow: visible;
 }
 
+.blue-color {
+    background-color: #4483FE;
+}
+
 .warning {
     background-color: #FF0000;
 }
@@ -38,6 +42,11 @@ html, body{
 
 .army-btn:hover {
     color: white !important;
+}
+
+.title-md {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
 }
 
 /* [[ SIDEBAR ]] */
@@ -305,4 +314,20 @@ h3.title-md {
     display: flex;
     align-items: center;
     height: 100%;
+}
+
+/* [[ END OF EVENT PAGE ]] */
+/* [[ VOLUNTEERED EVENTS ]] */
+.ve-container {
+    display: flex;
+    flex-direction: column;
+    width: 40em;
+    position: relative;
+    margin-top: 1em;
+}
+
+.ve-header{
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
 }

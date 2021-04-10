@@ -1,0 +1,61 @@
+{% extends 'home/base.html' %} 
+{% block content %}
+<div class="ve-container">
+    <div class="ve-header">
+        <h2 class="title-md">Volunteered events</h2>
+    </div>
+    <div class="ve-events">
+        <div class="event-container">
+            <div class="event-header">
+                <div class="row">
+                    <div class="col d-flex event-col" style="margin-left: 1em;">
+                    <p><img class="img-fluid profile-sidebar profile-img" src="{{ url_for('static', filename='img/test_profile/selwyn.jpg') }}" alt=""><span style="margin-left: 1em;"><a style="text-decoration: none; color: black;" href="/profile"><p>selwyntarr </p></a></p>
+                    </div>
+                    <div class="col d-flex justify-content-end" style="margin-right: 1em;">
+                        <img width="50em" style="vertical-align: bottom !important;" src="{{ url_for('static', filename='img/meatball-menu.svg') }}" alt="">
+                    </div>
+                </div>            
+            </div>
+            <div class="event-img-container">
+                <img class="img-fluid" style="width: 50em;" src="{{ url_for('static', filename='img/test_place/flood-2009.jpg') }}" alt="">
+            </div>
+            <div class="event-details">
+                <a href="/home" style="text-decoration: none;"><p class="event-title">Tuguegarao City</p></a>
+                <p><i class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em;">Project Tuguegarao</span></p>
+                <p><i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em;">8:00 am - 5:00 pm</span></p>
+                <p><i class="fa fa-calendar" aria-hidden="true"></i><span style="margin-left: 0.5em;">December 1, 2020</span></p>
+            </div>
+            <div class="event-comments">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <a style="text-decoration: none; color: black;" href="/profile"><p>selwyntarr: </p></a>
+                    </div>
+                    <div class="col">
+                        <p style="font-weight: normal;">Tila naulit ang kalbaryong dinanas ng marami dati sa bagyong Ondoy nang manalasa nitong Huwebes ang Typhoon #UlyssesPH... more</p>
+                    </div>
+                </div>
+                <div class="row" style="margin-bottom: 1em;">
+                    <div class="col-sm">
+                        <a class="view-comment" style="text-decoration: none;" href="#" id="show_comment">View all comments (1)</a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2" style="margin-right: 1em;">
+                        <p>isaacsapelino: </p>
+                    </div>
+                    <div class="col">
+                        <p style="font-weight: normal;">Tila naulit ang kalbaryong dinanas ng marami dati sa bagyong Ondoy nang manalasa nitong Huwebes ang Typhoon #UlyssesPH... more</p>
+                    </div>
+                </div>
+            </div>
+            <div class="event-bottom">
+                <div class="row">
+                    <div class="col">
+                        <a href="#" class="btn blue-color vol-btn">Volunteered</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

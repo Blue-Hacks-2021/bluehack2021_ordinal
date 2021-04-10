@@ -36,3 +36,7 @@ def createEvent():
 @app.route('/event')
 def eventPage():
     return render_template('event.html', title='Event')
+
+@app.route('/volunteered')
+def volunteeredPage():
+    return render_template('volunteered-events.html', title='Volunteered')
