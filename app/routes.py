@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, flash, redirect, request, session, url_for
-from app.forms import LoginForm, RegistrationForm, VolunteerForm
+from app.forms import LoginForm, RegistrationForm, VolunteerForm, CommentForm, ReplyForm
 from flaskext.mysql import MySQL
 
 mysql = MySQL(autocommit=True)
@@ -82,15 +82,47 @@ def event(event_id):
     cur.execute("SELECT * FROM userdata where userid = {0}".format(session['id']))
     user = cur.fetchone()
 
-    form = VolunteerForm()
+    formVolunteer = VolunteerForm()
+    formComment = CommentForm()
+    formReply = ReplyForm()
 
-    if request.method == "POST":
+    #Comment and Reply Section
+    cur.execute("SELECT * FROM Comments where eventid = {0} ".format(event[0]))
+    comments = cur.fetchall()
+    discussions = []
+
+    for i in range(len(comments)):
+        cur.execute("SELECT * FROM Reply where commentid = {0} ".format(comments[i][0]))
+        reply = cur.fetchone()
+        discussions.append({'comment': comments[i][2], 'comment_date': comments[i][3], 'reply': reply[2], 'reply_date': reply[3]})
+
+    # Volunteer Button
+    if request.method == "POST" and formVolunteer.validate_on_submit() and formVolunteer.volunteer.data:
         cur = mysql.get_db().cursor()
         cur.execute("Insert INTO Volunteers values ({0},{1}) ".format(user[0],event[0]))
 
         return redirect(url_for('index'))
 
-    return render_template('event.html', event=event,form=form)
+    # Comment an Inquiry
+    if request.method == "POST" and formComment.validate_on_submit() and formComment.submitComment.data:
+        textComment = formComment.textComment
+        
+        cur = mysql.get_db().cursor()
+        cur.execute("INSERT INTO Comments (eventid, commenttext) VALUES ({0}, '{1}')".format(event[0], textComment)) 
+        
+        return redirect('/event/{0}'.format(event[0]))
+
+    # Reply to an Inquiry
+    if request.method == "POST" and formReply.validate_on_submit() and formReply.submitReply.data:
+        textReply = formReply.textReply
+        
+        cur = mysql.get_db().cursor()
+        cur.execute("INSERT INTO Reply (commentid, replytext) VALUES ({0}, '{1}')".format("""Need comment id""", replyComment)) 
+        
+        return redirect('/event/{0}'.format(event[0]))
+
+
+    return render_template('event.html', event=event,formVolunteer=formVolunteer, formComment=formComment, formReply=formReply, discussions=discussions)
 
 
 @app.route('/test')

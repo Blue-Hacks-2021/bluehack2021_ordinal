@@ -33,3 +33,12 @@ class StartEventForm(FlaskForm):
 
 class VolunteerForm(FlaskForm):
     volunteer = SubmitField('Volunteer')
+
+class CommentForm(FlaskForm):
+    textComment = TextField('Comment', validators=[DataRequired()])
+    submitComment = SubmitField('Comment')
+
+class ReplyForm(FlaskForm):
+    textReply = TextField('Reply', validators=[DataRequired()])
+    submitReply = SubmitField('Comment')
+
