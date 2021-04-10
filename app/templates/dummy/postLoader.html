@@ -1,0 +1,13 @@
+<!-- BACKEND -->
+<a href = "{{ url_for( 'profile' , user_id = session['id'] ) }}">
+    <h1>Hello! {{ user.username }}</h1>
+</a>
+
+{% for event in events %}
+<a href="{{ url_for( 'event' , event_id = event[0] ) }}">
+    <h2>{{ event[2] }}</h2>
+</a>
+<span>{{ event[3] }}</span>
+<hr>
+{% endfor %}
+{% endblock %}

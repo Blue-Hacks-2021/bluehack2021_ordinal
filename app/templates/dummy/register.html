@@ -1,0 +1,71 @@
+{% extends 'base.html' %} 
+
+{% block content %} 
+<div class="reg-content">
+    <a class="logo-link" href="/"><h1 class="title-lg gradient-logo">Ordinals</h1></a>
+    <div class="regbox">
+        <form action="" class="reg-box">
+           <div class="row">
+               <div class="col">
+                    <input type="text" class="form-control" placeholder="First Name">
+               </div>
+               <div class="col">
+                    <input type="text" class="form-control" placeholder="Last Name">
+               </div>
+           </div>
+           <div class="row">
+               <div class="col">
+                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" placeholder="Email address or Phone number">
+                    <input type="text" class="form-control" placeholder="Location">
+               </div>
+           </div>
+           <div class="row mt-3">
+               <div class="col">
+                   <p class="text-secondary login-text">Date of birth: <span><i class="fa fa-info-circle" aria-hidden="true"></i></span></p>
+               </div>
+           </div>
+           <div class="row mt-1">
+               <div class="col">
+                   <select class="form-select" name="month" id="month">
+                       <option selected disabled>
+                            Month
+                       </option>
+                   </select>
+               </div>
+               <div class="col">
+                    <select class="form-select" name="date" id="date">
+                        <option selected disabled>
+                            Date
+                        </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select" name="year" id="year">
+                        <option selected disabled>
+                            Year
+                        </option>
+                    </select>
+                </div>
+           </div>
+           <hr class="mt-4">
+           <div class="row">
+               <div class="col">
+                <input type="password" class="form-control" placeholder="Password">
+                
+               </div>
+           </div>
+           <div class="row">
+            <div class="col">
+             <input type="password" class="form-control" placeholder="Confirm Password">
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col">
+                <button type="submit" class="btn btn-success green-color">Sign me up</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

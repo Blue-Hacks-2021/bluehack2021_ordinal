@@ -35,6 +35,8 @@ def get_event(event_id):
 @app.route('/')
 @app.route('/index')
 def index():
+    return redirect(url_for('login'))
+    """
     user = {'username': ' '}
     if session['loggedin'] is True:
         user = {'username': session['username']}
@@ -49,6 +51,7 @@ def index():
     session['loggedin'] = False
     user = {'username': ' '}
     return render_template('index.html', title='Home', user=user)
+    """
 
 
 
@@ -146,8 +149,9 @@ def login():
             session['username'] = account[3]
             session['loggedin'] = True
 
-            return redirect(url_for('index'))
-    return render_template('login.html', title='Sign In', form=form)
+            return "Logged In"
+            #return redirect(url_for('index'))
+    return render_template('loginPage.html', title='Sign In', form=form)
 
 @app.route('/logout', methods=['GET'])
 def logout():
@@ -173,8 +177,9 @@ def registration():
             cur.execute("INSERT INTO userdata(firstname, lastname, username, middlename, pass, city, province, email) VALUES (%s, %s,%s, %s,%s, %s,%s, %s)", (firstName, lastName,username, middlename, password, city, province, email))
         cur.close()
         return redirect(url_for('login'))
-    return render_template('registration.html', title='Register', form=form)
+    return render_template('register.html', title='Register', form=form)
 
+"""
 @app.route('/register')
 def register():
     return render_template('register.html', title='Registration')
@@ -198,3 +203,4 @@ def eventPage():
 @app.route('/volunteered')
 def volunteeredPage():
     return render_template('volunteered-events.html', title='Volunteered')
+"""

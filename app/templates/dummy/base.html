@@ -1,0 +1,20 @@
+
+<html>
+    <head>
+      {% if title %}
+      <title>{{ title }} - WEBAPP </title>
+      {% else %}
+      <title>WEBAPP123</title>
+      {% endif %}
+    </head>
+    <body>
+        <div>
+            WEBAPP:
+            <a href="/index">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Signup</a>
+        </div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>

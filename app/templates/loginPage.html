@@ -11,7 +11,22 @@
         </p>
     </div>
     <div class="col">
-        <form action="" class="form-box">
+        <form action="" method="POST" class="form-box">
+        
+            {{ form.hidden_tag() }}
+            
+            {{ form.username(class_='form-control', placeholder='Username or Email') }}
+            
+            {{ form.password(class_='form-control', placeholder='Password') }}
+            
+            {{ form.submit(class_='btn btn-primary army-color btn-block') }}
+            <center style="margin-top: 1em;">
+                <a href="" class="cool-link">Forget your password?</a>
+            </center>   
+            <hr>
+            <a href="/register" class="btn btn-success green-color">Create an account</a>
+        
+          <!--  
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Username or Email">
                 <input type="password" class="form-control" placeholder="Password">                
@@ -22,21 +37,9 @@
             </center>            
             <hr>
             <a href="/register" class="btn btn-success green-color">Create an account</a>
+        -->
         </form>
     </div>
 </div>
+{% endblock %} 
 
-<!-- BACKEND -->
-
-<a href = "{{ url_for( 'profile' , user_id = session['id'] ) }}">
-    <h1>Hello! {{ user.username }}</h1>
-</a>
-
-{% for event in events %}
-<a href="{{ url_for( 'event' , event_id = event[0] ) }}">
-    <h2>{{ event[2] }}</h2>
-</a>
-<span>{{ event[3] }}</span>
-<hr>
-{% endfor %}
-{% endblock %}
