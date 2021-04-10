@@ -28,3 +28,7 @@ def home():
 @app.route('/profile')
 def profile():
     return render_template('profile.html', title='Profile')
+
+@app.route('/create-event')
+def createEvent():
+    return render_template('create-event.html', title='Create event')

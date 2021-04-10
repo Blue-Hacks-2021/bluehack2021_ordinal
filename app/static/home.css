@@ -220,3 +220,41 @@ h3.title-md {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
+/* [[ END OF PROFILE PAGE]] */
+/* [[ CREATE EVENT PAGE ]] */
+.ce-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 40em;
+    padding-top: 1em;
+    margin-top: 1em;
+    border-radius: 1em;
+}
+
+.ce-title {
+    padding: 1em;
+}
+
+.ce-title h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.ce-form-body {
+    padding: 1em;
+}
+
+.create-event-btn {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 0 0 0.5em 0.5em;
+}
+
+.create-event-btn:hover {
+    color: white;
+    
+}
