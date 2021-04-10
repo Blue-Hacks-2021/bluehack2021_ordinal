@@ -46,7 +46,10 @@
             <div class="row">
                 <div class="col">
                     <div class="ep-comment">
-                        <p><a style="text-decoration: none; color: black;" href="/profile">selwyntarr:</a><span style="font-weight: normal; margin-left: 0.3em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rerum saepe, incidunt vel quidem iusto fugiat, expedita, labore sunt nihil aliquid sequi est voluptas rem esse minus quae voluptatem corporis.</span></p>
+                        <div class="ep-comment-box">
+                            <p style="font-weight:bold; margin-bottom: 0em;"><a style="text-decoration: none; color: black;" href="/profile">selwyntarr:</a><span style="font-weight: normal; margin-left: 0.3em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rerum saepe, incidunt vel quidem iusto fugiat, expedita, labore sunt nihil aliquid sequi est voluptas rem esse minus quae voluptatem corporis.</span></p>
+                            <p class="info">14 min<span style="margin-left: 1em; font-weight: bold;"><a style="text-decoration: none; color: inherit;" href="#" id="reply">Reply</a></span></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,5 +75,44 @@
             </div>
         </div>
     </div>
+    <div id="reply-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-title">
+                <div class="row">
+                    <div class="col">
+                        <p>Reply to a comment</p>
+                    </div>
+                    <div class="col d-flex justify-content-end">
+                        <span style="font-size: 2em; cursor: pointer; color: red; position: absolute; top:0.1em;" class="close">
+                            &times;
+                        </span>
+                    </div>
+                </div>
+                <div class="row">
+                    <textarea class="form-control" name="reply" id="" cols="30" rows="8" placeholder="Write a comment"></textarea>
+                </div>
+                <div class="row mt-1">
+                    <div class="col d-flex justify-content-end">
+                        <button class="btn btn-primary">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+{% endblock %}
+{% block script %} 
+<script type="application/javascript">
+    const modal = document.querySelector('div#reply-modal');
+    const showReply = document.querySelector('a[id="reply"]');
+    const closeReply = document.querySelector('span.close');
+    showReply.onclick = (e) => {
+        modal.style.display = "block";
+        console.log('Hello World');
+    }
+
+    closeReply.onclick = (e) => {
+        modal.style.display = "none";
+    }
+</script>
 {% endblock %}
