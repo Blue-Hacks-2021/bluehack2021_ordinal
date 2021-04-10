@@ -6,7 +6,7 @@ from app.forms import StartEventForm
 mysql = MySQL(autocommit=True)
 mysql.init_app(app)
 
-@app.route('/start-event-portal', methods=['GET', 'POST'])
+@app.route('/host-event-portal', methods=['GET', 'POST'])
 def eventPortal():
     form = StartEventForm()
     if session['loggedin'] == True and request.method == "POST":
@@ -22,7 +22,7 @@ def eventPortal():
         if userid != '' and eventName != '' and description != '' and volunteerCount != '' and city != '' and province != '' and startEvent != '' and endEvent != '':
             cur.execute("INSERT INTO Recruitment (userid, title, description, volunteerno, city, province, start_date, end_date) VALUES ({0}, '{1}', '{2}', {3}, '{4}', '{5}', '{6}', '{7}')".format(userid, eventName, description, volunteerCount, city, province, startEvent, endEvent))
         cur.close()
-    return render_template('startEvent.html', title = 'Host Event', form=form)
+    return render_template('host-event.html', title = 'Host Event', form=form)
 
 # Warning: Only inserts a new query to friends table
 # does not check if the two user is already friends.

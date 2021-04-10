@@ -1,0 +1,82 @@
+{% extends 'home/base.html' %}
+{% block content %} 
+<div class="ce-container">
+    <div class="ce-title">
+        <h2>Host an event</h2>
+    </div>
+    <form class="ce-form" action="" method="post">
+        <div class="ce-form-body">
+            <div class="form-row">
+                <div class="col">
+                    {{ form.eventName(class_='form-control', id='title', placeholder='Title of Event') }}
+                </div>
+            </div>
+            <div class="form-row mt-2">
+                <div class="col">
+                    {{ form.description(class_='form-control', id='detail', cols=30, rows=5, placeholder='Details about the Event') }}
+                </div>
+            </div>
+            <div class="form-row mt-2">
+                <div class="col">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="customFile">
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div style="width: 2em !important;" class="col-sm-1 "">
+                    <p><i style="font-size: 2em !important;" class="fa fa-map-marker" aria-hidden="true"></i></p>
+                </div>
+                <div class="col">
+                    {{ form.city(class_='form-control', id='title', placeholder='City')}}
+                </div>
+                <div class="col">
+                    {{ form.province(class_='form-control', id='title', placeholder='Province')}}
+                </div>
+            </div>
+            <div class="row d-flex" style="align-items: baseline;">
+                <div  class="col-1 " style="width: 11em !important; align-content: center !important;">
+                    <p style="font-weight: normal; margin-right: 0em;"><i style="font-size: 1.5em !important;" class="fa fa-calendar" aria-hidden="true"></i><span style="margin-left: 0.5em; color: 000000; opacity:40%;">Event Start</span></p>
+                </div>
+            </div>
+            <div class="row d-flex" style="align-items: baseline;">
+                <div class="col" style="padding-right: 0em;">
+                    {{ form.startEvent(class_='form-select', id='startEvent')}}
+                </div>
+            </div>
+            <div class="row d-flex" style="align-items: baseline;">
+                <div class="col">
+                    <p style="font-weight: normal; vertical-align: bottom !important; margin-right: 0em;"><i style="font-size: 1.5em !important;" class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em; color: 000000; opacity:40%;">Event End</span></p>
+                </div>
+            </div>
+            <div class="row d-flex" style="align-items: baseline;">
+                <div class="col"  style="padding-right: 0em;" >
+                    {{ form.endEvent(class_='form-select', id='startEvent')}}
+                </div>    
+            </div>
+            <div class="row d-flex mt-2" style="align-items: baseline">
+                <div style="width: 2em !important;" class="col-sm-1 ">
+                    <img src="{{ url_for('static', filename='img/helping-people.svg') }}" alt="">
+                </div>
+                <div class="col">
+                    {{ form.volunteerCount(class='form-control', id='title', placeholder='Volunteers Needed')}}
+                </div>
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col">
+                {{ form.submit(class_='form-control btn green-color create-event-btn') }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block script %} 
+<script type="application/javascript">
+    const fileInput = document.querySelector('input[type="file"]');
+    fileInput.onchange = (e) => {
+        let fileName = e.target.files[0].name;
+        console.log(fileName);
+    }
+</script>
+{% endblock %}

@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DateTimeField
-from wtforms import TextField, BooleanField
+from wtforms import TextField, BooleanField, TextAreaField
+from wtforms.fields.html5 import DateTimeLocalField
 
 from wtforms.validators import DataRequired
 
@@ -23,12 +24,12 @@ class RegistrationForm(FlaskForm):
 
 class StartEventForm(FlaskForm):
     eventName = StringField('Event Name', validators=[DataRequired()])
-    description = StringField('Event Description')
+    description = TextAreaField('Event Description')
     volunteerCount = IntegerField('Volunteers Needed', validators=[DataRequired()])
     city = StringField('City', validators=[DataRequired()])
     province = StringField('Province', validators=[DataRequired()])
-    startEvent = DateTimeField('Event Start', validators=[DataRequired()])
-    endEvent = DateTimeField('Event Start', validators=[DataRequired()])
+    startEvent = DateTimeLocalField('Event Start', validators=[DataRequired()])
+    endEvent = DateTimeLocalField('Event Start', validators=[DataRequired()])
     submit = SubmitField('Host Event')
 
 class VolunteerForm(FlaskForm):
