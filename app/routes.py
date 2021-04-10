@@ -55,19 +55,25 @@ def index():
 
 @app.route('/home')
 def home():
-    return render_template('home.html', title='Home')
+    cur = mysql.get_db().cursor()
+    cur.execute("SELECT * FROM Recruitment")
+    events = cur.fetchall()
+    event_hosts = []
 
+    for i in range(len(events)):
+        event_hosts.append(get_user(events[i][1]))
 
+    return render_template('home.html', title='Home', events=events, event_hosts=event_hosts)
 
 #Profile Pages 2
-@app.route('/profile/<int:user_id>')
-def profile(user_id):
 
+@app.route('/profile')
+def profile():
+    """
     user = get_user(user_id)
     cur = mysql.get_db().cursor()
     #if cur.execute("SELECT * FROM recruitment") is None:
         # Placeholder for text that says, No Recruitments Ongoing. Start one now!
-            
     
     cur = mysql.get_db().cursor()
     cur.execute("SELECT * FROM Recruitment r INNER JOIN Volunteers v ON r.eventid = v.eventid where v.userid = {0}".format(user[0]))
@@ -80,6 +86,9 @@ def profile(user_id):
     cur.execute("SELECT count(*) FROM Recruitment where userid = {0} ".format(user[0]))
     eventcount = cur.fetchone()
     return render_template('profile.html', user=user, events=events, eventcount=eventcount[0],jevents=jevents, jeventcount=jeventcount[0])
+    """
+    return render_template('profile.html', title='Profile')
+    
 
 #Event Pages 2
 @app.route('/event/<int:event_id>', methods=['GET', 'POST'])
@@ -101,18 +110,24 @@ def event(event_id):
     for i in range(len(comments)):
         cur.execute("SELECT * FROM Reply where commentid = {0} ".format(comments[i][0]))
         reply = cur.fetchone()
-        discussions.append({'comment': comments[i][2], 'comment_date': comments[i][3], 'reply': reply[2], 'reply_date': reply[3]})
+        if reply is not None:
+            discussions.append({'comment': comments[i][2], 'comment_date': comments[i][3], 'reply': reply[2], 'reply_date': reply[3]})
+        else:
+            discussions.append({'comment': comments[i][2], 'comment_date': comments[i][3], 'reply': '', 'reply_date': ''})
 
     # Volunteer Button
-    if request.method == "POST" and formVolunteer.validate_on_submit() and formVolunteer.volunteer.data:
-        cur = mysql.get_db().cursor()
-        cur.execute("Insert INTO Volunteers values ({0},{1}) ".format(user[0],event[0]))
+    cur.execute("SELECT * FROM Volunteers where eventid = {0} and userid = {1}".format(event[0], session['id']))
+    volunteered = cur.fetchone()
+    if volunteered is None:
+        if request.method == "POST" and formVolunteer.volunteer.data:
+            cur = mysql.get_db().cursor()
+            cur.execute("Insert INTO Volunteers values ({0},{1}) ".format(user[0],event[0]))
 
-        return redirect(url_for('index'))
+            return redirect(url_for('index'))
 
     # Comment an Inquiry
-    if request.method == "POST" and formComment.validate_on_submit() and formComment.submitComment.data:
-        textComment = formComment.textComment
+    if request.method == "POST" and formComment.submitComment.data:
+        textComment = formComment.textComment.data
         
         cur = mysql.get_db().cursor()
         cur.execute("INSERT INTO Comments (eventid, commenttext) VALUES ({0}, '{1}')".format(event[0], textComment)) 
@@ -120,17 +135,17 @@ def event(event_id):
         return redirect('/event/{0}'.format(event[0]))
 
     # Reply to an Inquiry
-    if request.method == "POST" and formReply.validate_on_submit() and formReply.submitReply.data:
-        textReply = formReply.textReply
+    if request.method == "POST" and formReply.submitReply.data:
+        textReply = formReply.textReply.data
         
-        cur = mysql.get_db().cursor()
-        cur.execute("INSERT INTO Reply (commentid, replytext) VALUES ({0}, '{1}')".format("""Need comment id""", replyComment)) 
+        for i in range(len(comments)):
+            cur = mysql.get_db().cursor()
+            cur.execute("INSERT INTO Reply (commentid, replytext) VALUES ({0}, '{1}')".format(placeholder, textReply)) 
         
         return redirect('/event/{0}'.format(event[0]))
 
 
     return render_template('event.html', event=event,formVolunteer=formVolunteer, formComment=formComment, formReply=formReply, discussions=discussions)
-
 
 @app.route('/test')
 def test():
@@ -153,10 +168,10 @@ def login():
             session['username'] = account[3]
             session['loggedin'] = True
 
-            return "Logged In"
-            #return redirect(url_for('index'))
+            return redirect('/home')
     return render_template('loginPage.html', title='Sign In', form=form)
 
+@app.route('/logout/', methods=['GET'])
 @app.route('/logout', methods=['GET'])
 def logout():
     session.pop('id', None)
@@ -182,7 +197,7 @@ def registration():
         cur.close()
         return redirect(url_for('login'))
     return render_template('register.html', title='Register', form=form)
-
+    
 """
 @app.route('/register')
 def register():
