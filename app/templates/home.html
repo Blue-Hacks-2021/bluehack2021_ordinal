@@ -1,24 +1,26 @@
 {% extends 'home/base.html' %} 
-{% block content %} 
+{% block content %}
+{% for event in events %} 
 <div class="event-container">
     <div class="event-header">
         <div class="row">
             <div class="col d-flex event-col" style="margin-left: 1em;">
-            <p><img class="img-fluid profile-sidebar profile-img" src="{{ url_for('static', filename='img/test_profile/selwyn.jpg') }}" alt=""><span style="margin-left: 1em;"><a style="text-decoration: none; color: black;" href="/profile"><p>selwyntarr </p></a></p>
+            <p><img class="img-fluid profile-sidebar profile-img" src="{{ url_for('static', filename='img/test_profile/selwyn.jpg') }}" alt=""><span style="margin-left: 1em;"><a style="text-decoration: none; color: black;" href="/profile"><p>User</p></a></p>
             </div>
             <div class="col d-flex justify-content-end" style="margin-right: 1em;">
-                <a style="text-decoration: none; color: black;" href="/event"><img width="50em" style="vertical-align: bottom !important;" src="{{ url_for('static', filename='img/meatball-menu.svg') }}" alt=""></a>
+                <a style="text-decoration: none; color: black;" href="/event/{{event[0]}}"><img width="50em" style="vertical-align: bottom !important;" src="{{ url_for('static', filename='img/meatball-menu.svg') }}" alt=""></a>
             </div>
         </div>            
     </div>
+    
     <div class="event-img-container">
         <img class="img-fluid" style="width: 50em;" src="{{ url_for('static', filename='img/test_place/flood-2009.jpg') }}" alt="">
     </div>
     <div class="event-details">
-        <a href="/home" style="text-decoration: none;"><p class="event-title">Tuguegarao City</p></a>
-        <p><i class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em;">Project Tuguegarao</span></p>
-        <p><i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em;">8:00 am - 5:00 pm</span></p>
-        <p><i class="fa fa-calendar" aria-hidden="true"></i><span style="margin-left: 0.5em;">December 1, 2020</span></p>
+        <a href="/home" style="text-decoration: none;"><p class="event-title">{{ event[2] }}</p></a>
+        <p><i class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em;">{{ event[1] }}</span></p>
+        <p><i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em;">{{ event[8] }}</span></p>
+        <p><i class="fa fa-calendar" aria-hidden="true"></i><span style="margin-left: 0.5em;">{{ event[9] }}</span></p>
     </div>
     <div class="event-comments">
         <div class="row">
@@ -46,11 +48,13 @@
     <div class="event-bottom">
         <div class="row">
             <div class="col">
-                <a href="#" class="btn green-color vol-btn">Volunteer</a>
+                <a href="/event/{{event[0]}}" class="btn green-color vol-btn">Volunteer</a>
             </div>
         </div>
     </div>
+    {% endfor %}
 </div>
+
    <!-- More Cards -->
 {% endblock %}
 {% block script %}
