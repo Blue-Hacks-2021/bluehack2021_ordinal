@@ -258,3 +258,51 @@ h3.title-md {
     color: white;
     
 }
+/* [[ END OF CREATE EVENT PAGE ]] */
+/* [[ EVENT PAGE ]] */
+.event-page{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 60em;
+    margin-top: 1em;
+    border-radius: 1em;
+    
+}
+
+.event-page-header {
+    position: relative;
+    padding-top: 1em;
+}
+
+.event-page-header img.profile-img {
+    width: 3em;
+}
+
+.event-page-details p.event-title {
+    color: black !important;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.event-page-details p {
+    font-weight: semi-bold;
+    font-size: 1em;
+    color: #9F9F9F;
+}
+
+.ep-caption {
+}
+
+.ep-comment {
+    height: 10em;
+    overflow-y: auto;
+}
+
+.image-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}

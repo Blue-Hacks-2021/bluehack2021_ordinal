@@ -32,3 +32,7 @@ def profile():
 @app.route('/create-event')
 def createEvent():
     return render_template('create-event.html', title='Create event')
+
+@app.route('/event')
+def eventPage():
+    return render_template('event.html', title='Event')

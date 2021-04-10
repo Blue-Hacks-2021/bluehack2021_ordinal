@@ -1,0 +1,68 @@
+{% extends 'home/base.html' %}
+{% block content %} 
+<div class="event-page">
+    <div class="row">
+        <div class="col-7" style="background-color: black; border-radius: 1em 0 0 1em;">   
+            <div class="image-wrapper">
+                <div class="image-placeholder">
+                    <img class="img-fluid" src="{{ url_for('static', filename='img/test_place/flood-2009.jpg') }}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="event-page-header">
+                <p>
+                    <img class="img-fluid profile-sidebar profile-img" src="{{ url_for('static', filename='img/test_profile/selwyn.jpg') }}" alt="">
+                    <span style="position: absolute; top: 1.5em; margin-left: 0.5em;">selwyntarr<span style="font-weight: normal; position: absolute; left: 0em;  top: 1em;font-size: 1em;">1 hr</span>
+                </p>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="event-page-details">
+                        <a href="/home" style="text-decoration: none;"><p class="event-title">Tuguegarao City</p></a>
+                        <p><i class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em;">Project Tuguegarao</span></p>
+                        <p><i class="fa fa-clock-o" aria-hidden="true"></i><span style="margin-left: 0.5em;">8:00 am - 5:00 pm</span></p>
+                        <p><i class="fa fa-calendar" aria-hidden="true"></i><span style="margin-left: 0.5em;">December 1, 2020</span></p>
+                        <p><i style="color: #AE00FF;" class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em; color: black;">14k volunteers needed</span></p>
+                        <p><i class="fa fa-user" aria-hidden="true"></i><span style="margin-left: 0.5em; color: black;">700 more volunteers needed</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="ep-caption">
+                        <p><a style="text-decoration: none; color: black;" href="/profile">selwyntarr:</a><span style="font-weight: normal; margin-left: 0.3em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rerum saepe, incidunt vel quidem iusto fugiat, expedita, labore sunt nihil aliquid sequi est voluptas rem esse minus quae voluptatem corporis.</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="ep-comment">
+                        <p><a style="text-decoration: none; color: black;" href="/profile">selwyntarr:</a><span style="font-weight: normal; margin-left: 0.3em;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio rerum saepe, incidunt vel quidem iusto fugiat, expedita, labore sunt nihil aliquid sequi est voluptas rem esse minus quae voluptatem corporis.</span></p>
+                    </div>
+                </div>
+            </div>
+            <hr style="margin-right: 1em;">
+            <div class="row">
+                <form action="" method="post">
+                    <div class="row d-flex" style="align-items: baseline;">
+                        <div class="col">
+                            <input class="form-control" type="text" name="" id="" placeholder="Send a comment">
+                        </div>
+                        <div class="col-sm-2" style="padding-left: 0em;">
+                            <button type="submit" style="background-color: transparent; border: none;"><p style="font-size: 1.5em; color:#AE00FF;"><i class="fa fa-paper-plane" aria-hidden="true"></i></p></button>
+                        </div>
+                    </div>                    
+                </form>
+            </div>
+            <div class="row mt-2">
+                <div class="col" style="padding-left: 0em;">
+                    <div class="ep-footer" style="padding-left: 0em;">
+                        <a href="#" class="btn green-color vol-btn" style="border-radius: 0 0 1em 0;">Volunteer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
