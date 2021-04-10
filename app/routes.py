@@ -61,22 +61,17 @@ def profile(user_id):
     #if cur.execute("SELECT * FROM recruitment") is None:
         # Placeholder for text that says, No Recruitments Ongoing. Start one now!
             
-<<<<<<< HEAD
-
-    cur.execute("SELECT * FROM Recruitment where userid = {0} ".format(user[0]))
-=======
     
     cur = mysql.get_db().cursor()
-    cur.execute("SELECT * FROM recruitment r INNER JOIN volunteers v ON r.eventid = v.eventid where v.userid = {0}".format(user[0]))
+    cur.execute("SELECT * FROM Recruitment r INNER JOIN Volunteers v ON r.eventid = v.eventid where v.userid = {0}".format(user[0]))
     jevents = cur.fetchall()
-    cur.execute("SELECT count(*) FROM recruitment r INNER JOIN volunteers v ON r.eventid = v.eventid where v.userid = {0}".format(user[0]))
-    jeventcount = cur.fetchone();
-    cur.execute("SELECT * FROM recruitment where userid = {0} ".format(user[0]))
->>>>>>> d560f670182943b319179c39951f4a0826459ce3
+    cur.execute("SELECT count(*) FROM Recruitment r INNER JOIN Volunteers v ON r.eventid = v.eventid where v.userid = {0}".format(user[0]))
+    jeventcount = cur.fetchone()
+    cur.execute("SELECT * FROM Recruitment where userid = {0} ".format(user[0]))
     events = cur.fetchall()
     
     cur.execute("SELECT count(*) FROM Recruitment where userid = {0} ".format(user[0]))
-    eventcount = cur.fetchone();
+    eventcount = cur.fetchone()
     return render_template('profile.html', user=user, events=events, eventcount=eventcount[0],jevents=jevents, jeventcount=jeventcount[0])
 
 #Event Pages 2
@@ -113,6 +108,8 @@ def login():
         if cur.execute("SELECT * FROM userdata WHERE username = %s AND pass = %s", (input_user, input_pass)) is not None:
             cur.execute("SELECT * FROM userdata WHERE username = %s AND pass = %s", (input_user, input_pass))
             account = cur.fetchone()
+            if account is None:
+                return "Login Error"
             session['id'] = account[0]
             session['username'] = account[3]
             session['loggedin'] = True
