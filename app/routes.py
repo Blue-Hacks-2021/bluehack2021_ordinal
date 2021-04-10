@@ -6,9 +6,6 @@ from flaskext.mysql import MySQL
 mysql = MySQL(autocommit=True)
 mysql.init_app(app)
 
-
-
-
 #
 #@login_manager.user_loader
 #def load_user(user_id):
@@ -45,8 +42,7 @@ def index():
         #if cur.execute("SELECT * FROM recruitment") is None:
             # Placeholder for text that says, No Recruitments Ongoing. Start one now!
             
-
-        cur.execute("SELECT * FROM recruitment")
+        cur.execute("SELECT * FROM Recruitment")
         events = cur.fetchall()
         return render_template('index.html', user=user, events=events)
 
@@ -66,10 +62,10 @@ def profile(user_id):
         # Placeholder for text that says, No Recruitments Ongoing. Start one now!
             
 
-    cur.execute("SELECT * FROM recruitment where userid = {0} ".format(user[0]))
+    cur.execute("SELECT * FROM Recruitment where userid = {0} ".format(user[0]))
     events = cur.fetchall()
     
-    cur.execute("SELECT count(*) FROM recruitment where userid = {0} ".format(user[0]))
+    cur.execute("SELECT count(*) FROM Recruitment where userid = {0} ".format(user[0]))
     eventcount = cur.fetchone();
     return render_template('profile.html', user=user, events=events, eventcount=eventcount[0])
 
@@ -84,7 +80,7 @@ def event(event_id):
     if form.validate_on_submit():
         cur = mysql.get_db().cursor()
         cur.execute("Insert INTO Volunteers values ({0},{1} ".format(user[0],event[0]))
-        cur.execute("Update recruitment set volunteerno = volunteerno + 1 where eventid = {0}".format(evemt[0]))
+        cur.execute("Update Recruitment set volunteerno = volunteerno + 1 where eventid = {0}".format(evemt[0]))
 
         return render_template('event.html', event=event,form=form)
 
