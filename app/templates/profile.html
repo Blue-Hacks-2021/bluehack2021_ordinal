@@ -84,4 +84,28 @@
         </div>
     </div>
 </div>
+﻿
+<!-- BACKEND -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>{% block title %} {{ user[2] }} {% endblock %}</h2>
+<span>{{ user['1'] }}</span>
+<p>{{"City:  " ~user[6]~ " Province: " ~ user[7]~"" }}</p>
+<h2>{{"Hosted Events: " ~eventcount~ ""}}</h2>
+{% for event in events %}
+<a href="{{ url_for( 'event' , event_id = event[0] ) }}">
+    <h2>{{ event[2] }}</h2>
+</a>
+<span>{{ event[3] }}</span>
+<hr>
+{% endfor %}
+<h2>{{"Joined Events: " ~jeventcount~ ""}}</h2>
+{% for event in jevents %}
+<a href="{{ url_for( 'event' , event_id = event[0] ) }}">
+    <h2>{{ event[2] }}</h2>
+</a>
+<span>{{ event[3] }}</span>
+<hr>
+{% endfor %}
 {% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Host Event</h1>
+    {{ form.hidden_tag() }}
+    <form action="" method="post" novalidate>
+        <p>
+            {{ form.eventName.label }}<br>
+            {{ form.eventName(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.description.label }}<br>
+            {{ form.description(size=32) }}<br>
+           
+        </p>
+        <p>
+            {{ form.volunteerCount.label }}<br>
+            {{ form.volunteerCount(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.city.label }}<br>
+            {{ form.city(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.province.label }}<br>
+            {{ form.province(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.startEvent.label }}<br>
+            {{ form.startEvent(size=32) }}<br>
+        </p>
+        <p>
+            {{ form.endEvent.label }}<br>
+            {{ form.endEvent(size=32) }}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

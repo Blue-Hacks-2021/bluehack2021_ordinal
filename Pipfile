@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 flask-wtf = "*"
-flask-mysqldb = "*"
+python-dotenv = "*"
+flask-login = "*"
+cryptography = "*"
 
 [dev-packages]
