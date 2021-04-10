@@ -1,5 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, Textfield, IntegerField, DateTimeField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, DateTimeField
+from wtforms import TextField, BooleanField
+
 from wtforms.validators import DataRequired
 
 class LoginForm(FlaskForm):
@@ -29,4 +31,5 @@ class StartEventForm(FlaskForm):
     endEvent = DateTimeField('Event Start', validators=[DataRequired()])
     submit = SubmitField('Host Event')
 
-    
+class VolunteerForm(FlaskForm):
+    volunteer = SubmitField('Volunteer')

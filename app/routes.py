@@ -1,16 +1,24 @@
 from app import app
 from flask import render_template, flash, redirect, request, session, url_for
-from app.forms import LoginForm, RegistrationForm
+from app.forms import LoginForm, RegistrationForm, VolunteerForm
 from flaskext.mysql import MySQL
 
 mysql = MySQL(autocommit=True)
 mysql.init_app(app)
 
-"""
+
+
+
+#
+#@login_manager.user_loader
+#def load_user(user_id):
+#   return User.get(user_id)
+
+
 #Profile Pages
-def get_user(userid):
+def get_user(user_id):
     cur = mysql.get_db().cursor()
-    cur.execute("SELECT * FROM userdata where userid = ?", (userid))
+    cur.execute("SELECT * FROM userdata where userid = %s", (user_id))
     user = cur.fetchone()
 
     if user is None:
@@ -18,62 +26,69 @@ def get_user(userid):
     return user
 
 #Event Pages
-def get_event(eventid):
+def get_event(event_id):
     cur = mysql.get_db().cursor()
-    cur.execute("SELECT * FROM Recruitment where eventid = ?", (eventid))
+    cur.execute("SELECT * FROM Recruitment where eventid = %s ", event_id )
     event = cur.fetchone()
 
     if event is None:
         abort(404)
     return event
 
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
-
 @app.route('/')
 @app.route('/index')
 def index():
+    user = {'username': ' '}
     if session['loggedin'] is True:
         user = {'username': session['username']}
-        if cur.execute("SELECT * FROM recruitments") is None:
-            # Placeholder for text that says, No Recruitments Ongoing. Start one now!
-            pass
-
         cur = mysql.get_db().cursor()
-        cur.execute("SELECT * FROM Recruitments")
+        #if cur.execute("SELECT * FROM recruitment") is None:
+            # Placeholder for text that says, No Recruitments Ongoing. Start one now!
+            
+
+        cur.execute("SELECT * FROM recruitment")
         events = cur.fetchall()
-        return render_template('index.html', event=events)
+        return render_template('index.html', user=user, events=events)
 
     session['loggedin'] = False
     user = {'username': ' '}
     return render_template('index.html', title='Home', user=user)
+
+
 
 #Profile Pages 2
-@app.route('/profile/<int:userid>')
-def profile(userid):
-    user = get_user(userid)
-    return render_template('profile.html', user=user)
+@app.route('/profile/<int:user_id>')
+def profile(user_id):
+
+    user = get_user(user_id)
+    cur = mysql.get_db().cursor()
+    #if cur.execute("SELECT * FROM recruitment") is None:
+        # Placeholder for text that says, No Recruitments Ongoing. Start one now!
+            
+
+    cur.execute("SELECT * FROM recruitment where userid = {0} ".format(user[0]))
+    events = cur.fetchall()
+    
+    cur.execute("SELECT count(*) FROM recruitment where userid = {0} ".format(user[0]))
+    eventcount = cur.fetchone();
+    return render_template('profile.html', user=user, events=events, eventcount=eventcount[0])
 
 #Event Pages 2
-@app.route('/event/<int:eventid>')
-def events(eventid):
-    event = get_event(eventid)
+@app.route('/event/<int:event_id>')
+def event(event_id):
+    event = get_event(event_id)
+    cur = mysql.get_db().cursor()
+    cur.execute("SELECT * FROM userdata where userid = {0}".format(event[1]))
+    user = cur.fetchone()
     form = VolunteerForm()
+    if form.validate_on_submit():
+        cur = mysql.get_db().cursor()
+        cur.execute("Insert INTO Volunteers values ({0},{1} ".format(user[0],event[0]))
+        cur.execute("Update recruitment set volunteerno = volunteerno + 1 where eventid = {0}".format(evemt[0]))
 
+        return render_template('event.html', event=event,form=form)
 
     return render_template('event.html', event=event,form=form)
-
-"""
-@app.route('/')
-@app.route('/index')
-def index():
-    user = {'username': ' '}
-    if session['loggedin'] is True:
-        user = {'username': session['username']}
-    session['loggedin'] = False
-    return render_template('index.html', title='Home', user=user)
 
 
 @app.route('/test')
@@ -88,8 +103,8 @@ def login():
         input_user = form.username.data
         input_pass = form.password.data
         cur = mysql.get_db().cursor()
-        if cur.execute("SELECT * FROM userdatatb WHERE username = %s AND pass = %s", (input_user, input_pass)) is not None:
-            cur.execute("SELECT * FROM userdatatb WHERE username = %s AND pass = %s", (input_user, input_pass))
+        if cur.execute("SELECT * FROM userdata WHERE username = %s AND pass = %s", (input_user, input_pass)) is not None:
+            cur.execute("SELECT * FROM userdata WHERE username = %s AND pass = %s", (input_user, input_pass))
             account = cur.fetchone()
             session['id'] = account[0]
             session['username'] = account[3]
