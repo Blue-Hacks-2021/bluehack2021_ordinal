@@ -61,28 +61,39 @@ def profile(user_id):
     #if cur.execute("SELECT * FROM recruitment") is None:
         # Placeholder for text that says, No Recruitments Ongoing. Start one now!
             
+<<<<<<< HEAD
 
     cur.execute("SELECT * FROM Recruitment where userid = {0} ".format(user[0]))
+=======
+    
+    cur = mysql.get_db().cursor()
+    cur.execute("SELECT * FROM recruitment r INNER JOIN volunteers v ON r.eventid = v.eventid where v.userid = {0}".format(user[0]))
+    jevents = cur.fetchall()
+    cur.execute("SELECT count(*) FROM recruitment r INNER JOIN volunteers v ON r.eventid = v.eventid where v.userid = {0}".format(user[0]))
+    jeventcount = cur.fetchone();
+    cur.execute("SELECT * FROM recruitment where userid = {0} ".format(user[0]))
+>>>>>>> d560f670182943b319179c39951f4a0826459ce3
     events = cur.fetchall()
     
     cur.execute("SELECT count(*) FROM Recruitment where userid = {0} ".format(user[0]))
     eventcount = cur.fetchone();
-    return render_template('profile.html', user=user, events=events, eventcount=eventcount[0])
+    return render_template('profile.html', user=user, events=events, eventcount=eventcount[0],jevents=jevents, jeventcount=jeventcount[0])
 
 #Event Pages 2
-@app.route('/event/<int:event_id>')
+@app.route('/event/<int:event_id>', methods=['GET', 'POST'])
 def event(event_id):
     event = get_event(event_id)
     cur = mysql.get_db().cursor()
-    cur.execute("SELECT * FROM userdata where userid = {0}".format(event[1]))
+    cur.execute("SELECT * FROM userdata where userid = {0}".format(session['id']))
     user = cur.fetchone()
-    form = VolunteerForm()
-    if form.validate_on_submit():
-        cur = mysql.get_db().cursor()
-        cur.execute("Insert INTO Volunteers values ({0},{1} ".format(user[0],event[0]))
-        cur.execute("Update Recruitment set volunteerno = volunteerno + 1 where eventid = {0}".format(evemt[0]))
 
-        return render_template('event.html', event=event,form=form)
+    form = VolunteerForm()
+
+    if request.method == "POST":
+        cur = mysql.get_db().cursor()
+        cur.execute("Insert INTO Volunteers values ({0},{1}) ".format(user[0],event[0]))
+
+        return redirect(url_for('index'))
 
     return render_template('event.html', event=event,form=form)
 

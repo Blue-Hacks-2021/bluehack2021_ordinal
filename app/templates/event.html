@@ -4,5 +4,7 @@
 <h2>{% block title %} {{ event['title'] }} {% endblock %}</h2>
 <span>{{ event[3] }}</span>
 <p>{{" Volunteers: "~event[4]~" Location: " ~(event[7])~ "" }}</p>
-<p>{{ form.volunteer() }}</p>
-{% endblock %}
+<form action="" method="post" novalidate>
+    <p>{{ form.volunteer() }}</p>
+    </form>
+    {% endblock %}
